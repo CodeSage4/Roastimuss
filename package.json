@@ -7,7 +7,10 @@
     "build": "devvit build",
     "dev": "devvit playtest",
     "upload": "devvit upload",
-    "deploy": "devvit deploy"
+    "deploy": "devvit deploy",
+    "login": "devvit login",
+    "init": "devvit init",
+    "start": "devvit playtest"
   },
   "dependencies": {
     "@devvit/public-api": "^0.11.17"
