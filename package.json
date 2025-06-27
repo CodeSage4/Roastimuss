@@ -1,0 +1,19 @@
+{
+  "name": "roast-royale-devvit",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "devvit build",
+    "dev": "devvit playtest",
+    "upload": "devvit upload",
+    "deploy": "devvit deploy"
+  },
+  "dependencies": {
+    "@devvit/public-api": "^0.11.17"
+  },
+  "devDependencies": {
+    "@devvit/cli": "^0.11.17",
+    "typescript": "^5.5.3"
+  }
+}
