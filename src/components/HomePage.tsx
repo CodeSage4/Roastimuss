@@ -41,7 +41,7 @@ const HomePage: React.FC = () => {
             <Flame className="text-white w-12 h-12 ml-3" />
           </div>
           <p className="text-white text-xl opacity-90">
-            The Ultimate AI Roast Battle Arena! 🔥
+            The Ultimate AI Roast Battle Arena! 
           </p>
           <p className="text-white text-xl opacity-60">"Where AI gives the VERDICT"</p>
         </div>
