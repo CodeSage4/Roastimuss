@@ -192,7 +192,7 @@ export const roastPrompts = [
 ];
 
 
-export const getRandomPrompt = (): string => {Add commentMore actions
+export const getRandomPrompt = (): string => {
   const randomIndex = Math.floor(Math.random() * roastPrompts.length);
   return roastPrompts[randomIndex];
 };
