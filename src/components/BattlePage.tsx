@@ -160,7 +160,10 @@ const BattlePage: React.FC = () => {
             <textarea value={gameState.userRoast} onChange={(e) => setUserRoast(e.target.value)} disabled={gameState.isLoading || !!gameState.aiResponse} className="w-full px-4 py-3 border-2 rounded-xl focus:ring-2 min-h-[120px]" maxLength={500} />
             <div className="flex justify-between mt-1">
               <p className="text-sm">{gameState.userRoast.length}/500</p>
-              {gameState.userQuality > 0 && <div className={text-sm ${getQualityColor(gameState.userQuality)}}>Quality: {getQualityLabel(gameState.userQuality)}</div>}
+              {gameState.userQuality > 0 && <div className={`text-sm ${getQualityColor(gameState.userQuality)}`}>
+  Quality: {getQualityLabel(gameState.userQuality)}
+</div>
+ {getQualityLabel(gameState.userQuality)}</div>}
             </div>
           </label>
           {!gameState.aiResponse && <button onClick={handleRoast} disabled={gameState.isLoading || !gameState.userRoast.trim()} className="mt-4 w-full bg-gradient-to-r from-red-500 to-orange-500 text-white py-4 rounded-xl">{gameState.isLoading ? <><Loader className="animate-spin mr-2" />Cooking...</> : <>🔥 ROAST!</>}</button>}
