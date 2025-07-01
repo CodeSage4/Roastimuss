@@ -43,6 +43,7 @@ const HomePage: React.FC = () => {
           <p className="text-white text-xl opacity-90">
             The Ultimate AI Roast Battle Arena! 🔥
           </p>
+          <p>"Where AI gives the VERDICT..."</p>
         </div>
 
         {/* Game Start Card */}
