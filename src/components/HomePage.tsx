@@ -36,7 +36,7 @@ const HomePage: React.FC = () => {
           <div className="flex items-center justify-center mb-4">
             <Flame className="text-white w-12 h-12 mr-3" />
             <h1 className="text-5xl font-bold text-white drop-shadow-lg">
-              Roast Royale
+              Roastimus
             </h1>
             <Flame className="text-white w-12 h-12 ml-3" />
           </div>
