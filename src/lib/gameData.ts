@@ -193,14 +193,17 @@ export const roastPrompts = [
 
 
 export const getRandomPrompt = (usedIndices: number[]): { prompt: string; index: number } => {
-  const availableIndices = roastPrompts
-    .map((_, index) => index)
-    .filter((i) => !usedIndices.includes(i));
-
-  if (availableIndices.length === 0) {
-    return { prompt: "🔥 You've roasted everyone already!", index: -1 };
+  if (usedIndices.length >= roastPrompts.length) {
+    // All prompts used, reset
+    usedIndices = [];
   }
 
+  const availableIndices = roastPrompts
+    .map((_, idx) => idx)
+    .filter(idx => !usedIndices.includes(idx));
+
   const randomIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
-  return { prompt: roastPrompts[randomIndex], index: randomIndex };
+  const prompt = roastPrompts[randomIndex];
+
+  return { prompt, index: randomIndex };
 };
