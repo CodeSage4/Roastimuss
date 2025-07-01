@@ -27,13 +27,16 @@ const BattlePage: React.FC = () => {
   } = useGame();
 
   useEffect(() => {
-    if (!gameState.username) navigate('/');
+    if (!gameState.username) {
+      navigate('/');
+      return;
+    }
     if (!gameState.currentPrompt) {
       const { prompt, index } = getRandomPrompt(gameState.usedPromptIndices);
       setCurrentPrompt(prompt);
       setUsedPromptIndices([...gameState.usedPromptIndices, index]);
     }
-  }, [gameState.username, gameState.currentPrompt, navigate, setCurrentPrompt]);
+  }, [gameState.username, gameState.currentPrompt, gameState.usedPromptIndices, navigate, setCurrentPrompt]);
 
   const calculateScore = (userQuality: number, aiQuality: number): number => {
     let score = userQuality;
