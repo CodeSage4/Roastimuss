@@ -4,7 +4,6 @@ import { AudienceReaction } from '../lib/audience';
 interface GameState {
   username: string;
   currentScore: number;
-  totalScore: number;
   currentPrompt: string;
   userRoast: string;
   aiResponse: string;
@@ -14,12 +13,10 @@ interface GameState {
   aiQuality: number;
   audienceReactions: AudienceReaction[];
   totalBattles: number;
-  usedPromptIndices: number[];
 }
 
 interface GameContextType {
   gameState: GameState;
-  setGameState: React.Dispatch<React.SetStateAction<GameState>>;
   setUsername: (username: string) => void;
   setCurrentScore: (score: number) => void;
   setCurrentPrompt: (prompt: string) => void;
@@ -41,7 +38,6 @@ const GameContext = createContext<GameContextType | undefined>(undefined);
 const initialGameState: GameState = {
   username: '',
   currentScore: 0,
-  totalScore: 0,
   currentPrompt: '',
   userRoast: '',
   aiResponse: '',
@@ -51,7 +47,6 @@ const initialGameState: GameState = {
   aiQuality: 0,
   audienceReactions: [],
   totalBattles: 0,
-  usedPromptIndices: [],
 };
 
 export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
@@ -117,8 +112,7 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       userQuality: 0,
       aiQuality: 0,
       audienceReactions: [],
-      battleRound: 1,
-      usedPromptIndices: []
+      battleRound: 1
     }));
   };
 
@@ -135,7 +129,6 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     <GameContext.Provider
       value={{
         gameState,
-        setGameState,
         setUsername,
         setCurrentScore,
         setCurrentPrompt,
