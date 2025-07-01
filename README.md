@@ -1,78 +1,58 @@
-# Roast Royale - Reddit Devvit App 🔥
+# Roastimuss - AI Roast Battle Game 🔥
 
-A Reddit-native roast battle game where users compete against AI in epic roasting competitions!
+Roastimuss is an interactive web game where players engage in roast battles against an AI opponent. Test your wit, humor, and roasting skills in this unique entertainment experience!
 
-## 🎮 Game Features
+## Features
 
-- **Multi-Round Battles**: Continue roasting through multiple rounds with increasing difficulty
-- **Quality-Based Scoring**: Dynamic scoring system based on roast creativity and humor
-- **Audience Reactions**: AI bots react to both user and AI roasts
-- **Persistent Leaderboard**: Global rankings stored in Redis
-- **Roast Titles**: Earn titles based on your total score (from "Newbie Toaster" to "Roast Deity")
+- 🎮 **Interactive Gameplay**: Battle against an AI in a turn-based roasting competition
+- 🤖 **AI-Powered Responses**: Advanced AI that generates contextual and witty comebacks
+- 📈 **Scoring System**: Dynamic scoring based on roast quality and battle performance
+- 🏆 **Leaderboard**: Compete with other players and climb the global rankings
+- 👥 **Audience Reactions**: Real-time audience feedback to your roasts
+- 🔄 **Multiple Rounds**: Progressive difficulty and scoring multipliers in each round
 
-## 🚀 Deployment Instructions
+## Tech Stack
 
-### Prerequisites
-1. Install the Devvit CLI:
+- React with TypeScript
+- Vite for build tooling
+- Tailwind CSS for styling
+- Supabase for backend and database
+- Google's Gemini AI for roast generation
+
+## Getting Started
+
+1. Clone the repository
+2. Install dependencies:
    ```bash
-   npm install -g @devvit/cli
+   npm install
    ```
-
-2. Login to your Reddit account:
-   ```bash
-   devvit login
-   ```
-
-### Build & Deploy
-
-1. **Build the app:**
-   ```bash
-   npm run build
-   ```
-
-2. **Test locally (optional):**
+3. Create a `.env` file based on `.env.example` and add your API keys
+4. Start the development server:
    ```bash
    npm run dev
    ```
 
-3. **Upload to Reddit:**
-   ```bash
-   npm run upload
-   ```
+## How to Play
 
-4. **Deploy to a subreddit:**
-   ```bash
-   npm run deploy
-   ```
+1. Enter your username on the home page
+2. Start a battle and receive a roast prompt
+3. Write your best roast based on the prompt
+4. Submit and watch the AI's response
+5. Receive scores based on creativity, humor, and roast quality
+6. Progress through multiple rounds with increasing difficulty
+7. Complete the battle to see your final score and ranking
 
-### Installation on Reddit
+## Scoring System
 
-1. **For Moderators**: Use the "Install Roast Royale" menu action in your subreddit
-2. **For Users**: Look for "Roast Royale" custom posts in participating subreddits
+- Base scores are calculated on roast quality (1-10)
+- Bonus points for beating the AI's response
+- Round multipliers increase scores in later rounds
+- Scores are saved to the global leaderboard
 
-## 🎯 How to Play
+## Contributing
 
-1. **Enter Username**: Start by entering your roasting name
-2. **Battle Arena**: Receive a random roast prompt
-3. **Write Your Roast**: Craft your best comeback
-4. **AI Response**: Watch the AI fire back with its own roast
-5. **Scoring**: Get scored on creativity, humor, and roast quality
-6. **Continue**: Battle through multiple rounds or finish to save your score
-7. **Leaderboard**: Compete for the top spot and earn roast titles!
+Contributions are welcome! Feel free to submit issues and pull requests.
 
-## 🏆 Scoring System
+## License
 
-- **Base Score**: 1-10 points based on roast quality
-- **Victory Bonus**: +5 points for beating the AI
-- **Tie Bonus**: +2 points for matching the AI
-- **Round Multiplier**: Scores increase by 20% each round
-- **Leaderboard**: Global rankings with fun roast titles
-
-## 🔧 Technical Details
-
-- **Framework**: Reddit Devvit
-- **Storage**: Redis for leaderboard persistence
-- **UI**: Native Devvit components
-- **Deployment**: Direct to Reddit subreddits
-
-Ready to become the ultimate roast master? 🔥👑
+MIT License - feel free to use and modify for your own projects!
