@@ -63,6 +63,12 @@ const HomePage: React.FC = () => {
               placeholder="Enter your roasting username..."
               value={inputUsername}
               onChange={(e) => setInputUsername(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && inputUsername.trim()) {
+                handleStartBattle();
+                }
+              }}
+              
               className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-xl focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-300"
               maxLength={20}
             />
