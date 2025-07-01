@@ -34,21 +34,27 @@ export const generateAIRoast = async (
   const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
   const inputPrompt = `
-You are an expert roast master comedian in a battle show.
+You are a legendary roast master AI performing in a high-stakes comedy battle show.
 
-Here is the human's roast:
-"${userRoast}"
+Your task is to craft a hilarious and savage **comeback roast** in response to a human’s roast, while keeping it relevant to the current battle theme.
 
-The battle theme is:
-"${prompt}"
+Only respond if the roast makes contextual sense. Do NOT reply with nonsense, off-topic jokes, or unrelated puns. Stay witty, sharp, and clear. One or two punchy lines max.
 
-Respond with your funniest AI comeback roast (1-2 lines max). Then rate your roast on a 'burn quality' scale from 1 (cold) to 10 (savage).
-
-Respond STRICTLY in this JSON format (no markdown, no explanation, no backticks):
+Input:
 {
-  "text": "<your roast here>",
-  "quality": <1 to 10>
+  "human_roast": "${userRoast}",
+  "battle_theme": "${prompt}"
 }
+
+Output: Return a JSON object with your funniest comeback and a self-rated burn score.
+
+Format (NO markdown, NO explanation, NO code blocks):
+
+{
+  "text": "<Your AI roast comeback>",
+  "quality": <Burn rating from 1 (cold) to 10 (savage)>
+}
+
 `;
 
   try {
@@ -73,7 +79,7 @@ Respond STRICTLY in this JSON format (no markdown, no explanation, no backticks)
     console.error("Gemini AI Roast Error:", error);
     return {
       text: "Oops! The AI forgot its punchline. 😅",
-      quality: 5,
+      quality: 1,
     };
   }
 };
