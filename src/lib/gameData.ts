@@ -192,18 +192,7 @@ export const roastPrompts = [
 ];
 
 
-export const getRandomPrompt = (usedIndices: number[]): { prompt: string; index: number } => {
-  if (usedIndices.length >= roastPrompts.length) {
-    // All prompts used, reset
-    usedIndices = [];
-  }
-
-  const availableIndices = roastPrompts
-    .map((_, idx) => idx)
-    .filter(idx => !usedIndices.includes(idx));
-
-  const randomIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
-  const prompt = roastPrompts[randomIndex];
-
-  return { prompt, index: randomIndex };
+export const getRandomPrompt = (): string => {Add commentMore actions
+  const randomIndex = Math.floor(Math.random() * roastPrompts.length);
+  return roastPrompts[randomIndex];
 };
