@@ -51,10 +51,11 @@ const BattlePage: React.FC = () => {
   };
 
   const startNewRound = () => {
-    const prompt = getRandomPrompt();
+    const { prompt, index } = getRandomPrompt(gameState.usedPromptIndices);
     setGameState(prev => ({
       ...prev,
       currentPrompt: prompt,
+      usedPromptIndices: [...prev.usedPromptIndices, index],
       userRoast: '',
       aiResponse: '',
       userQuality: 0,
