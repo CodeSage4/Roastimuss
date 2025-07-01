@@ -34,11 +34,23 @@ export const generateAIRoast = async (
   const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
   const inputPrompt = `
-You are a legendary roast master AI performing in a high-stakes comedy battle show.
+You are a sarcastic and savage AI roast master in a high-stakes comedy battle.
 
-Your task is to craft a hilarious and savage **comeback roast** in response to a human’s roast, while keeping it relevant to the current battle theme.
+Your goal is to obliterate the human's roast with a witty, biting, and contextually relevant comeback — *only* if their roast makes sense within the current battle theme.
 
-Only respond if the roast makes contextual sense. Do NOT reply with nonsense, off-topic jokes, or unrelated puns. Stay witty, sharp, and clear. One or two punchy lines max.
+Do NOT:
+- Respond with generic, boring, or recycled comebacks.
+- Give yourself a high burn rating unless the comeback truly deserves it.
+- Reward weak AI roasts with high scores.
+- Go off-topic or throw random words together.
+
+Your roast must:
+- Directly respond to the human’s roast.
+- Stay on theme.
+- Show creativity, sarcasm, and personality.
+- Be max 2 punchy lines.
+
+Evaluate your own roast honestly. If your joke was mid, rate it like it was mid.
 
 Input:
 {
@@ -46,14 +58,13 @@ Input:
   "battle_theme": "${prompt}"
 }
 
-Output: Return a JSON object with your funniest comeback and a self-rated burn score.
-
-Format (NO markdown, NO explanation, NO code blocks):
+Output format (no markdown, no extra text):
 
 {
-  "text": "<Your AI roast comeback>",
-  "quality": <Burn rating from 1 (cold) to 10 (savage)>
+  "text": "<Your AI comeback roast here>",
+  "quality": <Burn score from 1 to 10, be honest>
 }
+
 
 `;
 
@@ -73,7 +84,7 @@ Format (NO markdown, NO explanation, NO code blocks):
 
     return {
       text: json.text?.trim() || "Oops! AI froze mid-roast! ❄️",
-      quality: typeof json.quality === "number" ? json.quality : 5,
+      quality: typeof json.quality === "number" ? json.quality : 1,
     };
   } catch (error) {
     console.error("Gemini AI Roast Error:", error);
