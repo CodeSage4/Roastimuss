@@ -157,7 +157,12 @@ const BattlePage: React.FC = () => {
           <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-xl text-gray-700 font-medium">{gameState.currentPrompt}</div>
           <label className="block mt-4">
             <span className="text-gray-700 font-semibold text-lg">🔥 Your Epic Roast:</span>
-            <textarea value={gameState.userRoast} onChange={(e) => setUserRoast(e.target.value)} disabled={gameState.isLoading || !!gameState.aiResponse} className="w-full px-4 py-3 border-2 rounded-xl focus:ring-2 min-h-[120px]" maxLength={500} />
+            <textarea value={gameState.userRoast} onChange={(e) => setUserRoast(e.target.value)} onKeyDown={(e) => {
+    if (e.key === 'Enter' && !e.shiftKey && !gameState.aiResponse && !gameState.isLoading) {
+      e.preventDefault(); // prevent newline
+      handleRoast(); // trigger the roast
+    }
+  }} disabled={gameState.isLoading || !!gameState.aiResponse} className="w-full px-4 py-3 border-2 rounded-xl focus:ring-2 min-h-[120px]" maxLength={500} />
             <div className="flex justify-between mt-1">
               <p className="text-sm">{gameState.userRoast.length}/500</p>
               {gameState.userQuality > 0 && <div className={`text-sm ${getQualityColor(gameState.userQuality)}`}>Quality: {getQualityLabel(gameState.userQuality)}</div>}
